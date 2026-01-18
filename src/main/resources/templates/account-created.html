@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Добро пожаловать!</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        .email-container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .content {
+            padding: 30px;
+        }
+
+        .greeting {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .message {
+            font-size: 16px;
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .highlight {
+            background-color: #f0f7ff;
+            border-left: 4px solid #667eea;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 5px 5px 0;
+        }
+
+        .features {
+            margin: 25px 0;
+        }
+
+        .features ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .features li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .features li:before {
+            content: "✓";
+            color: #4CAF50;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .footer {
+            background-color: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            border-top: 1px solid #eee;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .button {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 20px 0;
+            font-weight: bold;
+        }
+
+        .contact-info {
+            margin-top: 25px;
+            padding-top: 25px;
+            border-top: 1px solid #eee;
+            font-size: 14px;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+<div class="email-container">
+    <!-- Шапка -->
+    <div class="header">
+        <h1>Добро пожаловать!</h1>
+    </div>
+
+    <!-- Контент -->
+    <div class="content">
+        <div class="greeting">
+            Здравствуйте, <strong th:text="${username}">Пользователь</strong>!
+        </div>
+
+        <div class="message">
+            Мы рады сообщить, что ваш аккаунт в
+            <strong th:text="${companyName}">Нашем Сервисе</strong>
+            был успешно создан.
+        </div>
+
+        <div class="highlight">
+            Ваш email для входа: <strong th:text="${email}">user@example.com</strong>
+        </div>
+
+        <div class="features">
+            <p>Теперь вы можете:</p>
+            <ul>
+                <li>Войти в свой аккаунт, используя указанный email</li>
+                <li>Настроить свой профиль</li>
+                <li>Воспользоваться всеми возможностями сервиса</li>
+                <li>Получать персонализированные уведомления</li>
+            </ul>
+        </div>
+
+        <div style="text-align: center;">
+            <a href="#" class="button">Войти в аккаунт</a>
+        </div>
+
+        <div class="contact-info">
+            <p>Если у вас возникли вопросы или нужна помощь, пожалуйста,
+                свяжитесь с нашей службой поддержки:</p>
+            <p>Email: support@<span th:text="${companyName}">example</span>.com<br>
+                Телефон: +7 (XXX) XXX-XX-XX</p>
+        </div>
+    </div>
+
+    <!-- Подвал -->
+    <div class="footer">
+        <p>Это письмо отправлено автоматически. Пожалуйста, не отвечайте на него.</p>
+        <p>© <span th:text="${companyName}">Наш Сервис</span>
+            <span th:text="${#dates.year(#dates.createNow())}">2024</span></p>
+    </div>
+</div>
+</body>
+</html>

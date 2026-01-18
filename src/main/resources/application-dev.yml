@@ -1,0 +1,29 @@
+# Конфигурация для разработки
+spring:
+  mail:
+    host: localhost
+    port: 1025  # MailHog порт
+    username: test@example.com
+    password: test
+    properties:
+      mail:
+        smtp:
+          auth: false
+          starttls:
+            enable: false
+          connectiontimeout: 5000
+
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: notification-service-dev
+
+app:
+  email:
+    from: no-reply@example.com
+    company-name: "Тестовый Сервис"
+
+logging:
+  level:
+    com.example.notificationservice: DEBUG
+    org.springframework.kafka: INFO

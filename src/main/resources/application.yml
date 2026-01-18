@@ -1,0 +1,70 @@
+# Настройки сервера
+server:
+  port: 8081
+  servlet:
+    context-path: /
+
+# Настройки приложения
+spring:
+  application:
+    name: notification-service
+
+  # Настройки почтового сервера
+  mail:
+    host: ${MAIL_HOST:smtp.gmail.com}
+    port: ${MAIL_PORT:587}
+    username: ${MAIL_USERNAME:}
+    password: ${MAIL_PASSWORD:}
+    protocol: smtp
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+          connectiontimeout: 5000
+          timeout: 3000
+          writetimeout: 5000
+
+  # Настройки Thymeleaf для HTML шаблонов
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML
+    encoding: UTF-8
+    cache: false
+
+  # Настройки Kafka Consumer
+  kafka:
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
+    consumer:
+      group-id: notification-service-group
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.trusted.packages: "com.example.notificationservice.dto"
+        spring.json.type.mapping: "userEvent:com.example.notificationservice.dto.UserEvent"
+
+# Кастомные настройки Kafka
+kafka:
+  topics:
+    user-events: user-events-topic
+
+# Настройки логирования
+logging:
+  level:
+    root: INFO
+    com.example.notificationservice: DEBUG
+    org.springframework.kafka: INFO
+    org.springframework.mail: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+  file:
+    name: logs/notification-service.log
+
+# Настройки приложения
+app:
+  email:
+    from: ${MAIL_USERNAME:no-reply@example.com}
+    company-name: "Ваш Сайт"
