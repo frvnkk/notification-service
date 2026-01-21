@@ -1,12 +1,26 @@
 package com.example.notificationservice.event;
 
+import com.example.notificationservice.validation.ValidEventType;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
 public class UserEvent {
+
+    @NotBlank(message = "Event type is required")
+    @ValidEventType  // НОВАЯ АННОТАЦИЯ ВАЛИДАЦИИ
     private String eventType;
+
+    @NotBlank(message = "Email is required")
+    @Email(message = "Email should be valid")
     private String email;
+
+    @NotNull(message = "User ID is required")
     private Long userId;
+
     private LocalDateTime timestamp;
+
     private String username;
 
     // Геттеры и сеттеры

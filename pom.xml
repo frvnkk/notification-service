@@ -38,6 +38,12 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
+        <!--Validation-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-validation</artifactId>
+        </dependency>
+
         <!-- Работа с Kafka -->
         <dependency>
             <groupId>org.springframework.kafka</groupId>
@@ -79,6 +85,14 @@
                     <artifactId>junit-vintage-engine</artifactId>
                 </exclusion>
             </exclusions>
+        </dependency>
+
+        <!-- Awaitility для тестов -->
+        <dependency>
+            <groupId>org.awaitility</groupId>
+            <artifactId>awaitility</artifactId>
+            <version>4.2.0</version>
+            <scope>test</scope>
         </dependency>
 
         <!-- Kafka тестирование -->
@@ -201,3 +215,4 @@
         </plugins>
     </build>
 </project>
+

@@ -1,91 +1,102 @@
 package com.example.notificationservice;
 
-import com.example.notificationservice.dto.UserEvent;
+import com.example.notificationservice.event.UserEvent;
 import com.example.notificationservice.service.EmailService;
 import com.example.notificationservice.service.NotificationService;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.*;
+import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 
-@ExtendWith(MockitoExtension.class)
+@SpringBootTest
 class NotificationServiceTest {
 
-    @Mock
-    private EmailService emailService;
-
-    @InjectMocks
+    @Autowired
     private NotificationService notificationService;
 
+    @MockBean
+    private EmailService emailService;
+
     @Test
-    void testProcessUserEvent_Created() {
+    void testProcessUserCreatedEvent() {
         // Given
-        UserEvent event = new UserEvent("CREATED", "test@example.com", "Test User");
+        UserEvent event = new UserEvent();
+        event.setEventType("USER_CREATED");
+        event.setEmail("test@example.com");
+        event.setUsername("John Doe");
 
         // When
         notificationService.processUserEvent(event);
 
         // Then
         verify(emailService, times(1))
-                .sendAccountCreatedEmail("test@example.com", "Test User");
+                .sendUserCreatedEmail("test@example.com", "John Doe");
     }
 
     @Test
-    void testProcessUserEvent_Deleted() {
+    void testProcessUserDeletedEvent() {
         // Given
-        UserEvent event = new UserEvent("DELETED", "test@example.com", "Test User");
+        UserEvent event = new UserEvent();
+        event.setEventType("USER_DELETED");
+        event.setEmail("delete@example.com");
+        event.setUsername("Jane Smith");
 
         // When
         notificationService.processUserEvent(event);
 
         // Then
         verify(emailService, times(1))
-                .sendAccountDeletedEmail("test@example.com", "Test User");
+                .sendUserDeletedEmail("delete@example.com", "Jane Smith");
     }
 
     @Test
-    void testProcessUserEvent_InvalidEmail() {
+    void testProcessUnknownEvent() {
         // Given
-        UserEvent event = new UserEvent("CREATED", "invalid-email", "Test User");
+        UserEvent event = new UserEvent();
+        event.setEventType("UNKNOWN_EVENT");
+        event.setEmail("test@example.com");
 
-        // When & Then
-        assertThrows(IllegalArgumentException.class, () -> {
-            notificationService.processUserEvent(event);
-        });
+        // When
+        notificationService.processUserEvent(event);
+
+        // Then - не должно быть вызовов emailService
+        verify(emailService, times(0))
+                .sendUserCreatedEmail(anyString(), anyString());
+        verify(emailService, times(0))
+                .sendUserDeletedEmail(anyString(), anyString());
     }
 
     @Test
-    void testProcessUserEvent_UnknownEventType() {
-        // Given
-        UserEvent event = new UserEvent("UPDATED", "test@example.com", "Test User");
+    void testSendWelcomeEmail() {
+        // When
+        notificationService.sendWelcomeEmail("test@example.com", "John");
 
-        // When & Then
-        assertThrows(IllegalArgumentException.class, () -> {
-            notificationService.processUserEvent(event);
-        });
+        // Then
+        verify(emailService, times(1))
+                .sendUserCreatedEmail("test@example.com", "John");
+    }
+
+    @Test
+    void testSendGoodbyeEmail() {
+        // When
+        notificationService.sendGoodbyeEmail("test@example.com", "Jane");
+
+        // Then
+        verify(emailService, times(1))
+                .sendUserDeletedEmail("test@example.com", "Jane");
     }
 
     @Test
     void testSendCustomEmail() {
         // When
-        notificationService.sendCustomEmail("test@example.com", "Subject", "Message");
+        notificationService.sendCustomEmail("test@example.com", "Subject", "Text");
 
         // Then
         verify(emailService, times(1))
-                .sendSimpleEmail("test@example.com", "Subject", "Message");
-    }
-
-    @Test
-    void testSendTestEmail() {
-        // When
-        notificationService.sendTestEmail("test@example.com");
-
-        // Then
-        verify(emailService, times(1))
-                .sendTestEmail("test@example.com");
+                .sendCustomEmail("test@example.com", "Subject", "Text");
     }
 }

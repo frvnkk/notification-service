@@ -10,13 +10,21 @@ spring:
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
 
-  # Для тестирования - логируем email вместо реальной отправки
   mail:
     host: localhost
-    port: 1025  # MailHog порт
+    port: 1025  # MailHog порт для тестов
+    username: test@test.com
+    password: testpassword
     properties:
       mail:
-        debug: true
+        smtp:
+          auth: false        # Для тестов false
+          starttls:
+            enable: false    # Для тестов false
+
+kafka:
+  topic:
+    user-events: user-events
 
 mail:
   from: no-reply@example.com
@@ -24,4 +32,3 @@ mail:
 logging:
   level:
     com.example.notificationservice: DEBUG
-    org.springframework.mail: DEBUG
