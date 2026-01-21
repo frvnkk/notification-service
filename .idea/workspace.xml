@@ -5,20 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="33b7b970-f482-4a3d-9356-d67dbe1ada88" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/notificationservice/config/ValidationConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/notificationservice/validation/EventTypeValidator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/notificationservice/validation/ValidEventType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/example/notificationservice/kafka/UserEventConsumerIntegrationTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/notificationservice/controller/NotificationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/notificationservice/controller/NotificationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/notificationservice/dto/UserEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/notificationservice/dto/UserEvent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/notificationservice/event/UserEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/notificationservice/event/UserEvent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/notificationservice/kafka/UserEventConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/notificationservice/kafka/UserEventConsumer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/notificationservice/kafka/UserEventListener.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/notificationservice/service/NotificationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/notificationservice/service/NotificationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/notificationservice/EmailServiceIntegrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/notificationservice/EmailServiceIntegrationTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/notificationservice/NotificationServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/notificationservice/NotificationServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/notificationservice/kafka/UserEventConsumerIntegrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/notificationservice/kafka/UserEventConsumerIntegrationTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -181,7 +170,7 @@
       <workItem from="1768742834522" duration="12096000" />
       <workItem from="1768910011139" duration="8000" />
       <workItem from="1768914004325" duration="4579000" />
-      <workItem from="1768994840399" duration="12242000" />
+      <workItem from="1768994840399" duration="12553000" />
     </task>
     <servers />
   </component>

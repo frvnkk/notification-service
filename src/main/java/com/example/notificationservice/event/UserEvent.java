@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 public class UserEvent {
 
     @NotBlank(message = "Event type is required")
-    @ValidEventType  // НОВАЯ АННОТАЦИЯ ВАЛИДАЦИИ
+    @ValidEventType
     private String eventType;
 
     @NotBlank(message = "Email is required")

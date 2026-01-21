@@ -9,7 +9,7 @@ public class UserEvent {
     private String username;
     private LocalDateTime timestamp;
 
-    // Конструктор по умолчанию (обязателен для Jackson)
+    // Конструктор по умолчанию
     public UserEvent() {
         this.timestamp = LocalDateTime.now();
     }

@@ -25,10 +25,10 @@ class UserEventConsumerIntegrationTest {
 
     @Container
     static KafkaContainer kafka = new KafkaContainer(
-            DockerImageName.parse("confluentinc/cp-kafka:7.4.0") // Укажите конкретную версию
+            DockerImageName.parse("confluentinc/cp-kafka:7.4.0")
     )
-            .withReuse(true) // Позволяет переиспользовать контейнер
-            .withStartupTimeout(java.time.Duration.ofSeconds(120)); // Увеличиваем таймаут
+            .withReuse(true)
+            .withStartupTimeout(java.time.Duration.ofSeconds(120)); 
 
     @Autowired
     private KafkaTemplate<String, String> kafkaTemplate;
