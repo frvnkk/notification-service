@@ -6,19 +6,17 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <!-- Группа и артефакт -->
     <groupId>com.example</groupId>
     <artifactId>notification-service</artifactId>
     <version>1.0.0</version>
     <name>Notification Service</name>
     <description>Microservice for sending email notifications</description>
 
-    <!-- Родительский Spring Boot проект -->
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>3.1.5</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <relativePath/>
     </parent>
 
     <properties>
@@ -27,7 +25,20 @@
         <maven.compiler.target>17</maven.compiler.target>
         <testcontainers.version>1.19.3</testcontainers.version>
         <greenmail.version>2.0.0</greenmail.version>
+        <spring-cloud.version>2023.0.0</spring-cloud.version>
     </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <dependencies>
         <!-- ========== Spring Boot Starters ========== -->
@@ -62,6 +73,37 @@
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
         </dependency>
 
+        <!-- ========== Spring Cloud ========== -->
+        <!-- API Gateway -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-gateway</artifactId>
+        </dependency>
+
+        <!-- Service Discovery (Eureka Client) -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
+
+        <!-- Circuit Breaker -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-circuitbreaker-reactor-resilience4j</artifactId>
+        </dependency>
+
+        <!-- External Configuration -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-config</artifactId>
+        </dependency>
+
+        <!-- Actuator (для мониторинга) -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+
         <!-- ========== Для разработки ========== -->
 
         <!-- Hot reload для разработки -->
@@ -70,6 +112,13 @@
             <artifactId>spring-boot-devtools</artifactId>
             <scope>runtime</scope>
             <optional>true</optional>
+        </dependency>
+
+        <!-- Swagger/OpenAPI -->
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+            <version>2.3.0</version>
         </dependency>
 
         <!-- ========== Тестирование ========== -->
@@ -185,16 +234,6 @@
                 </configuration>
             </plugin>
 
-            <!-- Компилятор Java -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>${java.version}</source>
-                    <target>${java.version}</target>
-                </configuration>
-            </plugin>
-
             <!-- Maven Surefire Plugin для тестов -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -215,4 +254,3 @@
         </plugins>
     </build>
 </project>
-

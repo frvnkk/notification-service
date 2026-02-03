@@ -5,8 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="33b7b970-f482-4a3d-9356-d67dbe1ada88" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/notificationservice/dto/UserEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/notificationservice/dto/UserEvent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/notificationservice/event/UserEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/notificationservice/event/UserEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/notificationservice/config/OpenApiConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/notificationservice/controller/NotificationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/notificationservice/controller/NotificationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/notificationservice/kafka/UserEventConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/notificationservice/kafka/UserEventConsumer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/notificationservice/model/EmailRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/notificationservice/model/EmailRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/example/notificationservice/kafka/UserEventConsumerIntegrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/notificationservice/kafka/UserEventConsumerIntegrationTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -28,7 +34,6 @@
   &quot;associatedIndex&quot;: 3
 }</component>
   <component name="ProjectId" id="38Qrr8WKMkgKL7IBDcPlTmr0Y6p" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -47,6 +52,7 @@
     "RequestMappingsPanelWidth0": "75",
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Spring Boot.NotificationServiceApplication.executor": "Run",
     "git-widget-placeholder": "master",
@@ -59,7 +65,7 @@
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "Docker",
     "vue.rearranger.settings.migration": "true"
   }
@@ -170,7 +176,13 @@
       <workItem from="1768742834522" duration="12096000" />
       <workItem from="1768910011139" duration="8000" />
       <workItem from="1768914004325" duration="4579000" />
-      <workItem from="1768994840399" duration="12553000" />
+      <workItem from="1768994840399" duration="13258000" />
+      <workItem from="1769514470620" duration="279000" />
+      <workItem from="1769514758423" duration="266000" />
+      <workItem from="1769945839770" duration="8000" />
+      <workItem from="1770118848933" duration="614000" />
+      <workItem from="1770119470353" duration="327000" />
+      <workItem from="1770119914595" duration="830000" />
     </task>
     <servers />
   </component>

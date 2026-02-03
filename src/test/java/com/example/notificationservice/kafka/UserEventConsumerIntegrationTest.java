@@ -28,7 +28,7 @@ class UserEventConsumerIntegrationTest {
             DockerImageName.parse("confluentinc/cp-kafka:7.4.0")
     )
             .withReuse(true)
-            .withStartupTimeout(java.time.Duration.ofSeconds(120)); 
+            .withStartupTimeout(java.time.Duration.ofSeconds(120));
 
     @Autowired
     private KafkaTemplate<String, String> kafkaTemplate;
